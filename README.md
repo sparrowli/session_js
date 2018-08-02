@@ -14,3 +14,16 @@ $ npm install -g wscat
 # Act as a browser to connect the signaling server
 $ wscat -c ws://localhost::19800
 ```
+
+###Make a call
+
+# sparrow and jane login in 
+`{"name": "sparrow", "type": "login"}`
+`{"name": "jane", "type": "login"}`
+# jane call sparrow by creating an offer
+# createOffer
+`{"name": "sparrow", "type": "offer"}`
+# sparrow answer jane
+# createAnswer
+`{"name": "jane", "type": "answer"}`
+**Note:** instead of those with SDP data

@@ -48,6 +48,42 @@ wss.on('connection', function(connection) {
 				}
 
 				break;
+			case "offer":
+				// e.g. Caller A wants to call callee B
+				console.log("sending offer to: ", data.name);
+
+				// If user B exists then send him offer details
+				var conn = users[data.name];
+
+				if (conn != null) {
+					// Setting that userA connected with userB
+					connection.otherName = data.name;
+
+					sendTo(conn, {
+						type: "offer",
+						offer: data.offer,
+						name: connection.name
+					});
+				}
+
+				break;
+
+			case "answer":
+				console.log("Sending answer to: ", data.name);
+
+				// e.g. User B answers caller A
+				var conn = users[data.name];
+
+				if (conn != null) {
+					connection.otherName = data.name;
+					sendTo(conn, {
+						type: "answer",
+						answer: data.answer
+					});
+				}
+
+				break;
+
 			default:
 				sendTo(connection, {
 					type: "error",
