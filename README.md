@@ -17,6 +17,7 @@ $ wscat -c ws://localhost::19800
 
 ###Make a call
 
+$ wscat -c ws://localhost::19800 --no-color --slash
 # sparrow and jane login in 
 `{"name": "sparrow", "type": "login"}`
 `{"name": "jane", "type": "login"}`
