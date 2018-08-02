@@ -11,4 +11,6 @@ $ static
 # - a web server and a web browser
 $ npm install ws
 $ npm install -g wscat
+# Act as a browser to connect the signaling server
+$ wscat -c ws://localhost::19800
 ```
