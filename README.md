@@ -28,3 +28,8 @@ $ wscat -c ws://localhost::19800 --no-color --slash
 # createAnswer
 `{"name": "jane", "type": "answer"}`
 **Note:** instead of those with SDP data
+
+# Handle ICE candidate
+`{"name": "jane", "type": "candidate", "candidate": "192.168.100.5"}`
+`{"name": "sparrow", "type": "candidate", "candidate": "192.168.100.10"}`
+**Note:** Might happen multiple times
